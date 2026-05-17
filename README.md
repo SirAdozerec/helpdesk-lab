@@ -12,4 +12,4 @@ Este repositorio contiene la documentación completa, scripts y procedimientos e
 * **Plataforma Cloud:** Microsoft Entra ID (Azure AD) y Microsoft 365
 
 ---
-*Nota: Este proyecto está dividido en 4 fases modulares que se construyen de forma secuencial.*
+*Nota: El proyecto se deividió en 4 fases modulares que se construyen de forma secuencial.*
