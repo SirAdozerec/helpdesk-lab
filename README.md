@@ -1,29 +1,31 @@
 # Homelab Help Desk
 
-Documentación, scripts,  y procedimientos operativos estándar (SOPs) de un entorno corporativo simulado desde cero en **Arch Linux** utilizando **VMware Workstation Pro**.
+Documentación, scripts,  y procedimientos operativos estándar (SOPs) de un entorno corporativo simulado desde cero en Arch Linux utilizando **VMware Workstation Pro**.
 
 ---
 
 # 🎯 Objetivo:
 
-Se tuvo como objetivo crear desde cero una simulación de infraestructura corporativa para practicar y demostrar cómo se administraría una red y sus servicios en un entorno empresarial.
+## 🎯 Objetivo
+
+Crear desde cero una infraestructura corporativa simulada para poner en práctica y demostrar conocimientos de administración de redes y servicios en un entorno empresarial.
 
 La idea es llevar a la práctica conocimientos útiles en puestos de **Help Desk**, trabajando con herramientas y situaciones que pueden encontrarse en un entorno de TI.
 
 Entre las principales áreas del proyecto se encuentran:
 
-* **Gestión de usuarios y accesos:** Configurar **Active Directory (AD DS)** para administrar usuarios, grupos y permisos, además de implementar políticas de seguridad mediante **GPO**. También se utilizarán **DNS y DHCP** en Windows Server 2022 para gestionar la red.
+1. **Gestión de usuarios y accesos:** Configurar **Active Directory (AD DS)** para administrar usuarios, grupos y permisos, además de implementar políticas de seguridad mediante **GPO**. También se utilizarán **DNS y DHCP** en Windows Server 2022 para gestionar la red.
 
-* **Automatización:** Utilizar **PowerShell y Python** para automatizar tareas repetitivas, como la creación de usuarios y la configuración de equipos, buscando reducir el trabajo manual y hacer más eficientes las tareas administrativas.
+2. **Automatización:** Utilizar **PowerShell y Python** para automatizar tareas repetitivas, como la creación de usuarios y la configuración de equipos, buscando reducir el trabajo manual y hacer más eficientes las tareas administrativas.
 
-* **Mesa de ayuda e ITSM:** Implementar **GLPI** sobre **Ubuntu Server** para simular una mesa de ayuda real, gestionando tickets, categorizando incidentes y documentando su resolución.
+3. **Mesa de ayuda e ITSM:** Implementar **GLPI** sobre **Ubuntu Server** para simular una mesa de ayuda real, gestionando tickets, categorizando incidentes y documentando su resolución.
 
-* **Redes y segmentación:** Configurar direcciones IP, DHCP y distintas redes virtuales para simular la segmentación y el aislamiento de dispositivos dentro de una infraestructura empresarial.
+4. **Redes y segmentación:** Configurar direcciones IP, DHCP y distintas redes virtuales para simular la segmentación y el aislamiento de dispositivos dentro de una infraestructura empresarial.
 
-En general, el proyecto busca ser una simulación práctica de un entorno de TI completo, pasando desde la configuración inicial de la infraestructura hasta la administración de usuarios, equipos, red e incidencias.
+En general, el proyecto busca ser una simulación práctica de un entorno de TI, pasando desde la configuración inicial de la infraestructura hasta la administración de usuarios, equipos, red e incidencias.
 
 
-## 📐 Topología y Arquitectura de Red
+## 🖧 Topología y Arquitectura de Red
 
 Toda la infraestructura local opera dentro del segmento privado aislado **Host-Only** (`192.168.10.0/24`) con el servicio DHCP de VMware desactivado para delegar la administración central a Windows Server.
 
