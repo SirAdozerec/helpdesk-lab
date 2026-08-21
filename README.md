@@ -45,7 +45,7 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Stack Tecnológico
 
 * **Sistema Anfitrión:** Arch Linux (KDE Plasma / Wayland)
 * **Virtualización:** VMware Workstation Pro
@@ -55,13 +55,14 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 
 ---
 
-## 🚀 Fases de Implementación
+## Fases de Implementación
 
 ### Fase 1: Preparación del Hipervisor y Segmentación de Red
 * Creación de la interfaz virtual `VMnet2` en modo **Host-Only** (`192.168.10.0/24`).
 * Desactivación del servidor DHCP nativo de VMware para evitar conflictos de red.
 
-<!-- 2. ARRASTRA AQUÍ LA CAPTURA 1 (Virtual Network Editor) -->
+<img width="621" height="606" alt="Captura 1 - Topología de Red" src="https://github.com/user-attachments/assets/cabe073c-d1ce-49d2-92d8-4a65630ae7d4" />
+
 
 ---
 
@@ -70,4 +71,5 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 * Asignación de recursos: 4 GB RAM, 4 vCPUs, 40 GB NVMe.
 * Enlace explícito del adaptador de red a la interfaz aislada `/dev/vmnet2`.
 
-<!-- 3. ARRASTRA AQUÍ LA CAPTURA 2 (Hardware y enlace de la VM) -->
+<img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/bf62aabb-3d4e-4e21-a13c-0904056626e2" />
+
