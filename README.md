@@ -6,8 +6,6 @@ Documentación, scripts,  y procedimientos operativos estándar (SOPs) de un ent
 
 # 🎯 Objetivo:
 
-## 🎯 Objetivo
-
 Crear desde cero una infraestructura corporativa simulada para poner en práctica y demostrar conocimientos de administración de redes y servicios en un entorno empresarial.
 
 La idea es llevar a la práctica conocimientos útiles en puestos de **Help Desk**, trabajando con herramientas y situaciones que pueden encontrarse en un entorno de TI.
