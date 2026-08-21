@@ -33,9 +33,14 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 
 
 * **Subred privada:** `192.168.10.0/24`
+
+  
 * **Nodos del laboratorio:**
+  
   * **DC01 (Windows Server 2022):** `192.168.10.2` — Controlador de Dominio (`corp.local`), DNS y servidor DHCP.
+    
   * **CLIENT01 (Windows 11 Pro):** Asignación dinámica (`192.168.10.100 - .200`) — Estación de trabajo corporativa unida al dominio.
+    
   * **SRV-GLPI (Ubuntu Server 24.04):** `192.168.10.3` — Pila LAMP y mesa de ayuda GLPI.
 
 ---
