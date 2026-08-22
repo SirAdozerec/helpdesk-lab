@@ -74,3 +74,6 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 
 <img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/bf62aabb-3d4e-4e21-a13c-0904056626e2" />
 
+<img width="724" height="374" alt="image" src="https://github.com/user-attachments/assets/a3070df7-0731-4857-bdcf-c935eb7b894c" />
+
+La interfaz de red de `DC01` fue configurada con la dirección IP estática `192.168.10.2/24`, correspondiente a la red privada `192.168.10.0/24`.
