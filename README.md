@@ -65,9 +65,12 @@ Toda la infraestructura local opera dentro del segmento privado aislado **Host-O
 ---
 
 ### Fase 2: Aprovisionamiento y Configuración Base de DC01
-* Despliegue de máquina virtual con Windows Server 2022 Standard (Desktop Experience).
-* Asignación de recursos: 4 GB RAM, 4 vCPUs, 40 GB NVMe.
-* Enlace explícito del adaptador de red a la interfaz aislada `/dev/vmnet2`.
+
+- Despliegue de máquina virtual con Windows Server 2022 Standard (Desktop Experience).
+- Asignación de recursos: 4 GB RAM, 4 vCPUs y 40 GB de almacenamiento NVMe.
+- Conexión del adaptador de red virtual a `VMnet2` en modo Host-Only.
+- Configuración de dirección IP estática: `192.168.10.2/24`.
+- Puerta de enlace predeterminada sin configurar debido al aislamiento de la red del laboratorio.
 
 <img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/bf62aabb-3d4e-4e21-a13c-0904056626e2" />
 
