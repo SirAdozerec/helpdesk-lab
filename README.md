@@ -1,4 +1,4 @@
-# Homelab Help Desk
+# HelpDesk Lab
 
 Documentación, scripts,  y procedimientos operativos estándar (SOPs) de un entorno corporativo simulado desde cero en Arch Linux utilizando **VMware Workstation Pro**.
 
