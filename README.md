@@ -1,13 +1,14 @@
 # HelpDesk Lab
 
-> Homelab de Help Desk, IT Support y monitoreo de seguridad — construido desde cero en Arch Linux con VMware Workstation Pro.
+> Homelab de Help Desk, IT Support y monitoreo de seguridad. Construido desde cero en Arch Linux con VMware Workstation Pro.
 
-Simulación de un entorno corporativo completo en 4 VMs: dominio Active Directory,
-mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh) y respuesta a incidentes.
-El objetivo es demostrar habilidades prácticas de soporte técnico, administración
-de sistemas y detección de amenazas.
+Simulación de un entorno corporativo completo en 4 VMs: identidad con
+Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y el
+flujo completo de escalamiento Help Desk → NOC → Respuesta a Incidentes.
+El objetivo es demostrar habilidades prácticas de soporte técnico y
+administración de sistemas en un entorno empresarial.
 
-![Topología del laboratorio](assets/00-topologia.svg)
+------AKI VA LA TOPOLOGIA EN GIF EKISDE XD--------
 
 ---
 
@@ -15,18 +16,27 @@ de sistemas y detección de amenazas.
 
 Construir un entorno de TI funcional donde:
 
-- Los empleados existen como usuarios reales en Active Directory.
+- Existan empleados como usuarios en Active Directory.
 - Reportan problemas vía tickets en GLPI (con autenticación LDAP contra AD).
-- Su actividad se monitorea de forma centralizada con Wazuh (SIEM).
-- Un intento de fuerza bruta dispara una alerta que conecta Help Desk → NOC → Seguridad.
+- Su actividad se monitorea con Wazuh (SIEM).
+- Un intento de fuerza bruta dispara una alerta que conecta Help Desk con el departamento correspondiente.
 
 ---
 
 ## 🖥️ Arquitectura
 
-- **Red:** host-only `vmnet2` — `192.168.10.0/24`, sin salida a internet
-- **Dominio:** `corp.local` (bosque de un solo dominio)
-- **Rangos:** infraestructura `.2–.20`, clientes `.100–.150` (DHCP)
+El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
+en modo host-only. Las VMs se ven entre ellas pero no
+pueden salir a internet ni tocar la red del host.
+
+El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
+
+- `.2 – .20` → reservado para servidores, con IP estática para que nunca cambien.
+- `.100 – .150` → clientes, asignadas por DHCP al arrancar.
+
+El dominio utilizado es `corp.local` y cuenta con un único controlador de dominio.
+
+
 
 | VM | SO | IP | Rol |
 |---|---|---|---|
@@ -37,15 +47,14 @@ Construir un entorno de TI funcional donde:
 
 ---
 
-## 🛠️ Stack Tecnológico
+## Entorno del laboratorio
 
 - **Virtualización:** VMware Workstation Pro
 - **Sistemas Operativos:** Windows Server 2022, Windows 11, Ubuntu Server 24.04 LTS
 - **Identidad:** Active Directory (AD DS), DNS, DHCP, LDAP
 - **ITSM:** GLPI sobre LAMP
 - **SIEM:** Wazuh
-- **Automatización:** PowerShell, Python (Faker)
-- **Documentación:** Markdown, Git/GitHub
+- **Automatización:** PowerShell
 
 ---
 
