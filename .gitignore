@@ -1,0 +1,19 @@
+# Máquinas virtuales
+*.vmdk
+*.vmem
+*.vmsn
+*.vmsd
+*.nvram
+*.vmss
+*.vmx.lck
+*.vmtm
+
+# ISOs
+*.iso
+
+# Logs
+*.log
+
+# Sistema
+.DS_Store
+Thumbs.db

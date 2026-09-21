@@ -1,81 +1,110 @@
 # HelpDesk Lab
 
-Documentación, scripts,  y procedimientos operativos estándar (SOPs) de un entorno corporativo simulado desde cero en Arch Linux utilizando **VMware Workstation Pro**.
+> Homelab de Help Desk, IT Support y monitoreo de seguridad — construido desde cero en Arch Linux con VMware Workstation Pro.
+
+Simulación de un entorno corporativo completo en 4 VMs: dominio Active Directory,
+mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh) y respuesta a incidentes.
+El objetivo es demostrar habilidades prácticas de soporte técnico, administración
+de sistemas y detección de amenazas.
+
+![Topología del laboratorio](assets/00-topologia.svg)
 
 ---
 
-# 🎯 Objetivo:
+## 🎯 Objetivo
 
-Crear desde cero una infraestructura corporativa simulada para poner en práctica y demostrar conocimientos de administración de redes y servicios en un entorno empresarial.
+Construir un entorno de TI funcional donde:
 
-La idea es llevar a la práctica conocimientos útiles en puestos de **Help Desk**, trabajando con herramientas y situaciones que pueden encontrarse en un entorno de TI.
-
-Entre las principales áreas del proyecto se encuentran:
-
-1. **Gestión de usuarios y accesos:** Configurar **Active Directory (AD DS)** para administrar usuarios, grupos y permisos, además de implementar políticas de seguridad mediante **GPO**. También se utilizarán **DNS y DHCP** en Windows Server 2022 para gestionar la red.
-
-2. **Automatización:** Utilizar **PowerShell y Python** para automatizar tareas repetitivas, como la creación de usuarios y la configuración de equipos, buscando reducir el trabajo manual y hacer más eficientes las tareas administrativas.
-
-3. **Mesa de ayuda e ITSM:** Implementar **GLPI** sobre **Ubuntu Server** para simular una mesa de ayuda real, gestionando tickets, categorizando incidentes y documentando su resolución.
-
-4. **Redes y segmentación:** Configurar direcciones IP, DHCP y distintas redes virtuales para simular la segmentación y el aislamiento de dispositivos dentro de una infraestructura empresarial.
-
-En general, el proyecto busca ser una simulación práctica de un entorno de TI, pasando desde la configuración inicial de la infraestructura hasta la administración de usuarios, equipos, red e incidencias.
-
-
-## 🖧 Topología y Arquitectura de Red
-
-Toda la infraestructura local opera dentro del segmento privado aislado **Host-Only** (`192.168.10.0/24`) con el servicio DHCP de VMware desactivado para delegar la administración central a Windows Server.
-
-<img width="2720" height="1920" alt="homelab_helpdesk_topology (1)" src="https://github.com/user-attachments/assets/7220c070-ff4a-49be-9174-7602813ca70d" />
-
-
-* **Subred privada:** `192.168.10.0/24`
-
-  
-* **Nodos del laboratorio:**
-  
-  * **DC01 (Windows Server 2022):** `192.168.10.2` — Controlador de Dominio (`corp.local`), DNS y servidor DHCP.
-    
-  * **CLIENT01 (Windows 11 Pro):** Asignación dinámica (`192.168.10.100 - .200`) — Estación de trabajo corporativa unida al dominio.
-    
-  * **SRV-GLPI (Ubuntu Server 24.04):** `192.168.10.3` — Pila LAMP y mesa de ayuda GLPI.
+- Los empleados existen como usuarios reales en Active Directory.
+- Reportan problemas vía tickets en GLPI (con autenticación LDAP contra AD).
+- Su actividad se monitorea de forma centralizada con Wazuh (SIEM).
+- Un intento de fuerza bruta dispara una alerta que conecta Help Desk → NOC → Seguridad.
 
 ---
 
-## Stack Tecnológico
+## 🖥️ Arquitectura
 
-* **Sistema Anfitrión:** Arch Linux (KDE Plasma / Wayland)
-* **Virtualización:** VMware Workstation Pro
-* **Sistemas Operativos:** Windows Server 2022 Standard, Windows 11 Pro, Ubuntu Server 24.04 LTS
-* **Roles & Protocolos:** Active Directory (AD DS), DNS, DHCP, LAMP Stack, GLPI Help Desk, RDP, SSH
-* **Automatización:** Python (Faker) y PowerShell
+- **Red:** host-only `vmnet2` — `192.168.10.0/24`, sin salida a internet
+- **Dominio:** `corp.local` (bosque de un solo dominio)
+- **Rangos:** infraestructura `.2–.20`, clientes `.100–.150` (DHCP)
 
----
-
-## Fases de Implementación
-
-### Fase 1: Preparación del Hipervisor y Segmentación de Red
-* Creación de la interfaz virtual `VMnet2` en modo **Host-Only** (`192.168.10.0/24`).
-* Desactivación del servidor DHCP nativo de VMware para evitar conflictos de red.
-
-<img width="621" height="606" alt="Captura 1 - Topología de Red" src="https://github.com/user-attachments/assets/cabe073c-d1ce-49d2-92d8-4a65630ae7d4" />
-
+| VM | SO | IP | Rol |
+|---|---|---|---|
+| **DC01** | Windows Server 2022 | `192.168.10.2` | AD DS · DNS · DHCP |
+| **CLIENT01** | Windows 11 Pro | DHCP | Estación de trabajo unida al dominio |
+| **SRV-GLPI** | Ubuntu Server 24.04 | `192.168.10.10` | LAMP + GLPI (ITSM) |
+| **SRV-WAZUH** | Ubuntu Server 24.04 | `192.168.10.11` | SIEM: Manager + Indexer + Dashboard |
 
 ---
 
-### Fase 2: Aprovisionamiento y Configuración Base de DC01
+## 🛠️ Stack Tecnológico
 
-- Despliegue de máquina virtual con Windows Server 2022 Standard (Desktop Experience).
-- Asignación de recursos: 4 GB RAM, 4 vCPUs y 40 GB de almacenamiento NVMe.
-- Conexión del adaptador de red virtual a `VMnet2` en modo Host-Only.
-- Configuración de dirección IP estática: `192.168.10.2/24`.
-- Puerta de enlace predeterminada sin configurar debido al aislamiento de la red del laboratorio.
+- **Virtualización:** VMware Workstation Pro
+- **Sistemas Operativos:** Windows Server 2022, Windows 11, Ubuntu Server 24.04 LTS
+- **Identidad:** Active Directory (AD DS), DNS, DHCP, LDAP
+- **ITSM:** GLPI sobre LAMP
+- **SIEM:** Wazuh
+- **Automatización:** PowerShell, Python (Faker)
+- **Documentación:** Markdown, Git/GitHub
 
-<img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/bf62aabb-3d4e-4e21-a13c-0904056626e2" />
+---
 
-La interfaz de red de `DC01` fue configurada con la dirección IP estática `192.168.10.2/24`, correspondiente a la red privada `192.168.10.0/24`.
+## 🚀 Fases de Implementación
 
-<img width="724" height="374" alt="image" src="https://github.com/user-attachments/assets/a3070df7-0731-4857-bdcf-c935eb7b894c" />
+| Fase | Descripción | Estado | Detalle |
+|---|---|---|---|
+| 01 | Preparación del hipervisor y segmentación de red | ✅ | [Ver detalle](docs/fases/fase-01-red.md) |
+| 02 | Aprovisionamiento y configuración base de DC01 | ✅ | [Ver detalle](docs/fases/fase-02-dc01-base.md) |
+| 03 | Promoción del dominio `corp.local` | ✅ | [Ver detalle](docs/fases/fase-03-promocion-ad.md) |
+| 04 | Unión de CLIENT01 al dominio | 🔴 | [Ver detalle](docs/fases/fase-04-client01.md) |
+| 05 | Despliegue de GLPI + autenticación LDAP | 🔴 | [Ver detalle](docs/fases/fase-05-glpi.md) |
+| 06 | Despliegue de Wazuh + escenario de incidente | 🔴 | [Ver detalle](docs/fases/fase-06-wazuh-incidente.md) |
 
+---
 
+## 📄 Procedimientos Operativos (SOPs)
+
+- [SOP — Onboarding de usuario](docs/sops/sop-onboarding.md)
+- [SOP — Reset de contraseña](docs/sops/sop-reset-password.md)
+- [SOP — Resolución de tickets en GLPI](docs/sops/sop-resolucion-tickets-glpi.md)
+
+---
+
+## 🧪 Escenario de Demostración
+
+El laboratorio incluye un flujo completo de respuesta a incidentes:
+
+1. Simulación de intentos de logon fallidos (fuerza bruta) en DC01.
+2. Wazuh detecta el patrón → dispara alerta.
+3. Se abre ticket en GLPI reportando actividad sospechosa.
+4. El ticket se escala a NOC citando la alerta de Wazuh como evidencia.
+5. Se bloquea la cuenta afectada en AD y se cambia contraseña.
+6. Se redacta un [post-incident report](docs/post-incident-report-demo.md).
+
+---
+
+## 📁 Estructura del Repositorio
+
+    .
+    ├── README.md
+    ├── .gitignore
+    ├── assets/          # Capturas y diagramas
+    ├── docs/
+    │   ├── fases/       # Detalle técnico de cada fase
+    │   ├── sops/        # Procedimientos operativos estándar
+    │   └── post-incident-report-demo.md
+    └── scripts/         # Automatización (Python + PowerShell)
+
+---
+
+## 🧠 Skills Técnicas Demostradas
+
+- Administración de Windows Server 2022 y Active Directory (AD DS)
+- Diseño e implementación de DNS y DHCP en entornos de dominio
+- Administración de Linux (Ubuntu Server) y stack LAMP
+- Virtualización con VMware Workstation Pro (redes host-only)
+- Automatización con PowerShell y Python
+- Gestión de servicios IT con GLPI (ITSM, tickets, KB)
+- Monitoreo y respuesta a incidentes con SIEM (Wazuh)
+- Autenticación LDAP e integración con Active Directory
+- Documentación técnica (SOPs) y control de versiones con Git
