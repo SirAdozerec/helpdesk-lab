@@ -43,3 +43,7 @@ Al intentar unir la estación al dominio, me encontré con que CLIENT01 no obten
 
 - Solución aplicada:
 Entré al Server Manager en DC01 y completé la autorización del servidor con la cuenta CORP\Administrator. Una vez hecho esto, CLIENT01 pudo comunicarse con el DC01 y obtuvo su IP (192.168.10.100) sin problemas.
+
+## Notas
+
+Tras validar la Fase 4, se tomó un snapshot de cada VM como punto de retorno seguro antes de proceder con el despliegue de GLPI.
