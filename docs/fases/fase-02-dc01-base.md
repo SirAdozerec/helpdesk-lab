@@ -14,9 +14,14 @@ Desplegar la VM de Windows Server 2022 que funcionará como el Controlador de Do
 - `ipconfig` muestra IP `192.168.10.2`, máscara `255.255.255.0`, sin gateway.
 - El adaptador de red está conectado a vmnet2 en VMware.
 
-![Configuración de hardware de DC01](../../assets/02-dc01-hardware.png)
+<p align="center">
+  <img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/b7d0dea9-39d2-4440-a0f9-7e8d7a82f763" />
+</p>
 
-![ipconfig de DC01 con IP estática](../../assets/03-dc01-ipconfig.png)
+<p align="center">
+  <img width="724" height="526" alt="Configuración de red IP estática en DC01" src="https://github.com/user-attachments/assets/06179dbe-e869-439a-b781-193f59cadc4c" />
+</p>
+
 
 ## Notas
 - Sin gateway porque la red es host-only sin salida a internet.
