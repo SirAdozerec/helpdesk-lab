@@ -1,7 +1,7 @@
-# Fase 02 — Aprovisionamiento y Configuración Base de DC01
+# Segunda fase — Configuración Base de DC01
 
 ## Objetivo
-Desplegar la VM de Windows Server 2022 que funcionará como Controlador de Dominio.
+Desplegar la VM de Windows Server 2022 que funcionará como el Controlador de Dominio.
 
 ## Procedimiento
 1. Creación de VM con Windows Server 2022 Standard (Desktop Experience).
