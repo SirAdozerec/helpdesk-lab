@@ -1,51 +1,46 @@
-# Fase 03 — Promoción del Dominio (`corp.local`)
+# Tercera fase — Promoción del Dominio (`corp.local`)
 
 ## Objetivo
-Convertir DC01 en el primer Controlador de Dominio del bosque `corp.local`.
+Establecer el bosque `corp.local` mediante la promoción de DC01 como el primer **Domain Controller**.
 
 ## Procedimiento
-1. Instalación del rol **AD DS** sobre DC01 vía Server Manager.
-2. Ejecución del asistente de promoción: **Add a new forest** → `corp.local`.
-3. Functional Level: **Windows Server 2016** para dominio y bosque.
-4. Contraseña DSRM establecida.
-5. Rutas por defecto para NTDS y SYSVOL.
-6. Validación de prerrequisitos: todos los checks en verde.
-7. Install → reinicio automático.
+1. Comencé instalando el rol **AD DS (Active Directory Domain Services)** en DC01 a través de **Server Manager**.
+2. Inicié el asistente de promoción seleccionando la opción **"Add a new forest"** para crear el dominio `corp.local`.
+3. Configuré el **Forest and Domain Functional Level** en Windows Server 2016.
+4. Definí la contraseña de recuperación **DSRM** y mantuve las rutas por defecto para los directorios **NTDS** y **SYSVOL**.
+5. Verifiqué que todos los "prerequisites" aparecieran en verde y, tras confirmar que todo estaba listo, ejecuté la instalación hasta el reinicio automático.
 
 ## Validación post-promoción
 
-Comandos ejecutados en PowerShell como `CORP\Administrator`:
+Para confirmar que el dominio quedó correctamente configurado, ejecuté los siguientes comandos en **PowerShell** con la cuenta `CORP\Administrator`:
 
-    Get-ADDomain
-    Get-ADForest
-    dcdiag /v
-    Get-Service NTDS, ADWS, DNS, Netlogon, KDC
-    net share
+```powershell
+Get-ADDomain
+Get-ADForest
+dcdiag /v
+Get-Service NTDS, ADWS, DNS, Netlogon, KDC
+net share
+```
 
-**Resultado:** el bosque `corp.local` quedó operativo con DC01 como único
-Domain Controller, los 5 servicios críticos en Running, y todos los tests
-de `dcdiag /v` en `passed`.
+**Resultado:** El bosque `corp.local` se encuentra operativo con DC01 como único **Domain Controller**. Los servicios críticos (**NTDS, ADWS, DNS, Netlogon, KDC**) están en estado `Running` y las pruebas de `dcdiag /v` arrojaron resultados satisfactorios (`passed`).
 
-![Salida de Get-ADDomain](../../assets/05-get-addomain.png)
 
-![Salida de dcdiag /v](../../assets/06-dcdiag.png)
+<p align="center">
+  <img width="1009" height="715" alt="Captura 1 - Descripción" src="https://github.com/user-attachments/assets/a2df57c5-b745-4518-83ec-8efc6c34aa68" />
+</p>
 
-![Salida de net share](../../assets/07-net-share.png)
+<p align="center">
+  <img width="1009" height="715" alt="Captura 2 - Descripción" src="https://github.com/user-attachments/assets/d73e2017-8eae-490b-8673-52433175f524" />
+</p>
 
-## Notas / Troubleshooting
+<p align="center">
+  <img width="762" height="358" alt="Captura 3 - Descripción" src="https://github.com/user-attachments/assets/b4a8b542-18f2-4b23-9696-3cb4446287ae" />
+</p>
 
-Durante la primera promoción, la instalación quedó incompleta: el servidor
-reinició pero los servicios de AD nunca arrancaron (NTDS, ADWS, KDC y
-Netlogon en `Stopped`). `ntdsutil` reportaba
-`"The machine is not an Active Directory Domain Controller"`.
 
-**Solución:** reinstalación completa del bosque con `Install-ADDSForest -Force`.
-Tras el segundo reinicio, todos los servicios arrancaron correctamente y
-`dcdiag /v` pasó sin errores.
 
-**Lección aprendida:** apagar siempre la VM con `shutdown /s /t 0` desde
-Windows (nunca con "Power Off" en VMware) y tomar un snapshot tras cada
-hito importante.
+## Notas:
 
-## Snapshot
-Se tomó un snapshot de VMware nombrado **"Fase 3 completada"** al finalizar esta fase.
+Durante el primer intento de promoción, la instalación falló después del reinicio: los servicios de Active Directory (NTDS, ADWS, KDC y Netlogon) se quedaron en estado `Stopped` y `ntdsutil` reportaba que la máquina no era un controlador de dominio.
+
+**Solución:** Realicé una limpieza y volví a ejecutar la promoción de forma forzada con el comando `Install-ADDSForest -Force`. Tras el segundo reinicio, los servicios arrancaron correctamente y el sistema quedó estable.
