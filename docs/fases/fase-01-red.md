@@ -1,14 +1,14 @@
-# Fase 01 — Preparación del Hipervisor y Segmentación de Red
+# Primera fase — Preparación del Hipervisor y Segmentación de Red
 
 ## Objetivo
-Preparar el host físico y crear una red virtual aislada donde va a vivir todo el laboratorio.
+Preparar el host físico y crear una red virtual aislada donde se alojará todo el laboratorio.
 
 ## Procedimiento
 1. Instalé VMware Workstation Pro.
 
 2. Creé la interfaz virtual `vmnet2` en modo Host-Only, con el segmento `192.168.10.0/24`.
 
-3. Apagué el DHCP nativo de VMware en `vmnet2`, quería que fuera DC01 quien repartiera las IPs, no VMware. De esta manera, el laboratorio se comporta como una red donde el controlador de dominio también funge como servidor DHCP.
+3. Apagué el DHCP nativo de VMware en `vmnet2`, el objetivo es que sea DC01 quien reparta las IPs. De esta manera, el laboratorio se comporta como una red donde el controlador de dominio también funge como servidor DHCP.
 
 ## Validación
 En el Virtual Network Editor confirmé que `vmnet2` quedó como host-only, con el DHCP apagado y la subred en `192.168.10.0`.
