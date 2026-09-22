@@ -24,9 +24,12 @@ Procedimiento
   
 - El login con cuenta de dominio funcionó correctamente tras el primer reinicio.
 
+<div align="center">
+
 <img width="585" height="201" alt="image" src="https://github.com/user-attachments/assets/317dd976-8b13-4c1d-b688-d2673af2bfa7" />
 
+<br><br>
 
 <img width="658" height="409" alt="image" src="https://github.com/user-attachments/assets/535e9e40-7db6-45d9-855e-6f1605b8989c" />
 
-
+</div>
