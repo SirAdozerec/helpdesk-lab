@@ -24,7 +24,8 @@ que simulará el usuario final del Help Desk.
 
 <div align="center">
 
-<img width="558" height="211" alt="image" src="https://github.com/user-attachments/assets/f0d9c47a-8c72-497d-b10b-f47b8ebdde06" />
+<img width="787" height="556" alt="image" src="https://github.com/user-attachments/assets/825e77d0-33dd-47b3-b10c-ee556090efdf" />
+
 
 
 <br><br>
