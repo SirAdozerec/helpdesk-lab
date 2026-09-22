@@ -23,7 +23,7 @@ Construir un entorno de TI funcional donde:
 
 ---
 
-## 🖥️ Arquitectura
+## Arquitectura
 
 El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
 en modo host-only. Las VMs se ven entre ellas pero no
@@ -58,7 +58,7 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ---
 
-## 🚀 Fases de Implementación
+## Fases de Implementación
 
 | Fase | Descripción | Estado | Detalle |
 |---|---|---|---|
@@ -71,7 +71,7 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ---
 
-## 📄 Procedimientos Operativos (SOPs)
+## Procedimientos Operativos (SOPs)
 
 - [SOP — Onboarding de usuario](docs/sops/sop-onboarding.md)
 - [SOP — Reset de contraseña](docs/sops/sop-reset-password.md)
@@ -79,7 +79,7 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ---
 
-## 🧪 Escenario de Demostración
+## Escenario de Demostración
 
 El laboratorio incluye un flujo completo de respuesta a incidentes:
 
@@ -92,7 +92,7 @@ El laboratorio incluye un flujo completo de respuesta a incidentes:
 
 ---
 
-## 📁 Estructura del Repositorio
+## Estructura del Repositorio
 
     .
     ├── README.md
