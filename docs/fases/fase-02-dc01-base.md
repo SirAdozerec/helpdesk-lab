@@ -21,7 +21,3 @@ Desplegar la VM de Windows Server 2022 que funcionará como el Controlador de Do
 <p align="center">
   <img width="724" height="526" alt="Configuración de red IP estática en DC01" src="https://github.com/user-attachments/assets/06179dbe-e869-439a-b781-193f59cadc4c" />
 </p>
-
-
-## Notas
-- Sin gateway porque la red es host-only sin salida a internet.
