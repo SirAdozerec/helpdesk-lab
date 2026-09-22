@@ -39,7 +39,7 @@ net share
 
 
 
-## Notas:
+## Resolución de problemas/Troubleshooting:
 
 Durante el primer intento de promoción, la instalación falló después del reinicio: los servicios de Active Directory (NTDS, ADWS, KDC y Netlogon) se quedaron en estado `Stopped` y `ntdsutil` reportaba que la máquina no era un controlador de dominio.
 
