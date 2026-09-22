@@ -22,4 +22,4 @@ También verifiqué que el servicio `vmware-networks.service` arrancara sin erro
 ## Notas
 `vmware-networks.service` no queda habilitado para iniciar solo al reiniciar el host. Cada vez que reinicio, tengo que levantarlo a mano:
 
-`bash sudo systemctl start vmware-networks.service`
+`sudo systemctl start vmware-networks.service`
