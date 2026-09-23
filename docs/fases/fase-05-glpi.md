@@ -15,9 +15,11 @@ autenticación LDAP contra Active Directory.
 - GLPI accesible desde CLIENT01 en `http://192.168.10.10/glpi`.
 - Login de técnico funciona con credenciales de dominio.
 
-![Login de GLPI con LDAP](../../assets/10-glpi-ldap-login.png)
+<img width="661" height="740" alt="image" src="https://github.com/user-attachments/assets/ff53ce23-e8f6-45dd-bfc8-df5c70540c88" />
 
-![Ticket de ejemplo en GLPI](../../assets/11-glpi-ticket.png)
+
+<img width="1882" height="905" alt="image" src="https://github.com/user-attachments/assets/2a975c74-d37f-43c8-ba19-7407e24d465a" />
+
 
 ## Pendiente
 - [ ] Crear la VM
