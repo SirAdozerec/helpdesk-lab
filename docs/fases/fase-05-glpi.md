@@ -91,5 +91,9 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 
 ## Notas Técnicas
 
+
+
+<img width="1088" height="734" alt="image" src="https://github.com/user-attachments/assets/cbe27497-88a0-459a-b068-72e62ef8f6a9" />
+
 * **Mapeo de Atributos:** Se utilizó `samaccountname` para el login, ya que es el estándar en Active Directory.
 * **Provisionamiento Automático:** Los usuarios se crean automáticamente en GLPI al iniciar sesión por primera vez.
