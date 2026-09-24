@@ -48,7 +48,7 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 * ✅ **Autenticación de usuario de dominio:** Probé el acceso con la cuenta `victoria.alejandro`. El login fue exitoso sin necesidad de crear el usuario manualmente en GLPI, redirigiéndome directamente a la pantalla principal de ayuda.
 
 <div align="center">
-          <img width="2000" alt="Formulario de creación de ticket" src="https://github.com/user-attachments/assets/084e0867-779a-452e-8239-96530d539ea8" />
+          <img width="1302" height="815" alt="image" src="https://github.com/user-attachments/assets/7c5d29a4-d43f-4326-85a1-ed579978dcb9" />
   <br><em style="font-size: 0.9em;">Acceso exitoso tras autenticación con cuenta de dominio.</em>
 </div >
 <br></br>
@@ -58,7 +58,7 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 <div align="center">
     <img width="1500" alt="Pantalla de inicio GLPI" src="https://github.com/user-attachments/assets/6cd08e06-ad9c-435b-ab67-14883296e4ba" />
 
-<em style="font-size: 0.8em;">Validación de login: Usuario de AD autenticado correctamente.</em>
+<em style="font-size: 0.8em;">Verificación de que los tickets podían abrirse correctamente.</em>
 
 </div >
 <div align="center">
@@ -69,11 +69,11 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
   <table style="border: none;">
     <tr style="border: none;">
       <td align="center" style="border: none;">
-        <img width="450" alt="Formulario de creación de ticket" src="https://github.com/user-attachments/assets/cbe27497-88a0-459a-b068-72e62ef8f6a9" />
+        <img width="450" alt="Ticket creado por usuario de AD" src="https://github.com/user-attachments/assets/084e0867-779a-452e-8239-96530d539ea8" />
         <br><em style="font-size: 0.8em;">Paso 1: Creación del ticket.</em>
       </td>
       <td align="center" style="border: none;">
-        <img width="450" alt="Ticket creado por usuario de AD" src="https://github.com/user-attachments/assets/084e0867-779a-452e-8239-96530d539ea8" />
+        <img width="450" alt="Formulario de creación de ticket" src="https://github.com/user-attachments/assets/cbe27497-88a0-459a-b068-72e62ef8f6a9" />
         <br><em style="font-size: 0.8em;">Paso 2: Ticket registrado en el sistema.</em>
       </td>
     </tr>
