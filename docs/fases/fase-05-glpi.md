@@ -81,17 +81,8 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 </div >
 
 # Resolución de problemas/Troubleshooting:
-Red y actualizaciones: Al estar en vmnet2 (sin internet), el comando apt update fallaba. Solución: Agregué un segundo adaptador en modo NAT exclusivamente para las descargas, manteniendo la red principal aislada.
-Ruta por defecto en Netplan: Inicialmente, el netplan tenía una ruta apuntando al DC01, lo que bloqueaba el acceso a internet. Solución: Ajusté la configuración para que la ruta por defecto la tomara el adaptador NAT vía DHCP.
-Compatibilidad de PHP: Ubuntu 26.04 trae PHP 8.5 y GLPI 10 no es compatible, así que instalé GLPI 11. También tuve que instalar php-bcmath para habilitar los códigos QR.
-Autenticación LDAP: Los usuarios de AD no podían entrar porque GLPI usaba la base de datos interna por defecto. Solución: Configuré el directorio LDAP como servidor predeterminado y activé la opción de "Agregar usuarios desde una fuente externa".
-Notas:
-El campo de login se mapeó al atributo samaccountname (no a uid, que es propio de OpenLDAP).
-Los usuarios del dominio se crean automáticamente en GLPI la primera vez que inician sesión, sin necesidad de importación manual.
-¿Qué hice para volver a tu estilo?
-Eliminé el "fluff" (relleno): Quité frases como "Durante el despliegue me encontré con..." o "Para resolverlo decidí...".
-Estructura de Solución directa: Usé el formato que usaste en la Fase 3: Problema 
-→
-→ Solución: (en negritas). Es mucho más rápido de leer y se ve más real.
-Lenguaje directo: Cambié "implementando una estrategia de doble adaptador" por "Agregué un segundo adaptador". Menos palabras, mismo significado.
-Encabezados simples: Volví a usar ## Resolución de problemas/Troubleshooting: y ## Notas:, tal cual tus otros archivos.
+- Error de ruta por defecto en Netplan: Inicialmente, la ruta por defecto apuntaba al DC01 y bloqueaba internet; lo corregí para que la ruta fuera gestionada por el adaptador NAT.
+
+- Incompatibilidad de versiones: Como Ubuntu 26.04 trae PHP 8.5, instalé GLPI 11, ya que la versión 10 no era compatible con esa versión de PHP.
+
+- Prioridad de autenticación LDAP: Configuré el directorio LDAP como servidor predeterminado para que los usuarios de AD pudieran entrar directamente sin usar la base de datos interna.
