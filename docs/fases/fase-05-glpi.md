@@ -64,7 +64,6 @@ Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 <div align="center">
 <br></br>
 
-  <img width="1007" height="793" alt="image" src="https://github.com/user-attachments/assets/8e31113c-a2cc-48cb-9470-5476e380ab1b" />
 
   <table style="border: none;">
     <tr style="border: none;">
