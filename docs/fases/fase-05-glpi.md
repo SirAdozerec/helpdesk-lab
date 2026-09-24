@@ -19,18 +19,42 @@ El objetivo de esta fase fue desplegar un sistema de gestión de tickets (**GLPI
 
 7.  **Conexión con el Dominio (LDAP):** Vinculé GLPI con nuestro Active Directory para que los usuarios pudieran iniciar sesión con sus cuentas habituales del dominio. Para esto, configuré la comunicación con el DC01 y me aseguré de que el sistema reconociera correctamente los nombres de usuario de la red.
 
-<div align="center">
-  <img width="661" alt="Wizard de configuración de GLPI" src="https://github.com/user-attachments/assets/ff53ce23-e8f6-45dd-bfc8-df5c70540c88" />
-  <br><em style="font-size: 0.9em;">Asistente de configuración LDAP completado con éxito.</em>
-</div >
-
 ## Validación
 
 Para confirmar que todo quedó funcionando, realicé las siguientes pruebas:
 
 *   ✅ **Prueba de conectividad LDAP:** El asistente de GLPI pasó los 5 checks de validación (TCP stream, Base DN, LDAP URI, Bind connection y Search), encontrando correctamente a los usuarios del dominio.
+
+<div align="center">
+<img width="723" height="414" alt="image" src="https://github.com/user-attachments/assets/7b114d64-f5e9-4574-b51e-af69725fc98d" />
+</div >
+
+-----------------------------------------------------------
+HOLA GEMMA, AKI PON ALGO DEL ASistente de konfigurasion xd
+
+
+<div align="center">
+  <img width="661" alt="Wizard de configuración de GLPI" src="https://github.com/user-attachments/assets/ff53ce23-e8f6-45dd-bfc8-df5c70540c88" />
+  <br><em style="font-size: 0.9em;">Asistente de configuración LDAP completado con éxito.</em>
+</div >
+
 *   ✅ **Autenticación de usuario de dominio:** Probé el acceso con la cuenta `victoria.alejandro`. El login fue exitoso sin necesidad de crear el usuario manualmente en GLPI, asignándole automáticamente su perfil.
 
+
+Este va aka:
+
+<div align="center">
+  <table style="border: none;">
+    <tr style="border: none;">
+      <td align="center" style="border: none;">
+        <img width="450" alt="Formulario de creación de ticket" src="https://github.com/user-attachments/assets/c52d47ee-692f-4419-9d39-3447c1683383" />
+        <br><em style="font-size: 0.8em;">Paso 1: Creación del ticket.</em>
+      </td>
+
+
+  No este xd:
+
+  
 <div align="center">
   <img width="1088" alt="Usuario de Active Directory logueado en GLPI" src="https://github.com/user-attachments/assets/aeba1f62-0580-4dd2-9855-ea8387c8cdd1" />
   <br><em style="font-size: 0.9em;">Validación de login: Usuario de AD autenticado correctamente.</em>
