@@ -29,6 +29,10 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 (imagen de dashboard de wazuh xd): <img width="1899" height="822" alt="image" src="https://github.com/user-attachments/assets/d04a20d0-34ad-46d2-9927-511fbac4fcbe" />
 
 
+(imagen del instalador de wazuh en el win server xd) <img width="1005" height="228" alt="image" src="https://github.com/user-attachments/assets/8c220d0b-4f08-479f-95ee-76df3a938f9f" />
+
+
+
 ## Pendiente
 - [ ] Crear la VM
 - [ ] Instalar Wazuh
