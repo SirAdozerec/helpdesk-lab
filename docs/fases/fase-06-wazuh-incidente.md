@@ -31,7 +31,8 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 
 (imagen del instalador de wazuh en el win server xd) <img width="1005" height="228" alt="image" src="https://github.com/user-attachments/assets/8c220d0b-4f08-479f-95ee-76df3a938f9f" />
 
-(imagen del dashboard de wazuh con 1 vm xd) <img width="1902" height="285" alt="image" src="https://github.com/user-attachments/assets/7ccdcd85-c093-4633-9774-832f01731bd8" />
+(imagen del dashboard de wazuh con 1 vm xd) <img width="1896" height="561" alt="image" src="https://github.com/user-attachments/assets/d6257c9e-580f-43d7-abd8-04eccdcfb3c6" />
+
 
 
 ## Pendiente
