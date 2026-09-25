@@ -75,7 +75,3 @@ Con el SIEM operativo y el agente enviando eventos, ejecuté un ataque controlad
 
 * **Descarga del agente en red aislada:** Como DC01 no tiene internet, no podía bajar el MSI directamente. **Solución:** Descargué el archivo en SRV-WAZUH y lo serví mediante un servidor HTTP local con `python3 -m http.server 8000`.
 
-## Notas:
-
-* El escenario completo (detección $\rightarrow$ ticket $\rightarrow$ escalamiento) está documentado en [`docs/post-incident-report-demo.md`](../post-incident-report-demo.md).
-* Como mejora pendiente, se podría implementar **Active Response** en Wazuh para bloquear automáticamente la IP atacante al detectar el patrón de fuerza bruta.
