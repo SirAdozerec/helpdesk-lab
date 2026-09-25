@@ -36,6 +36,9 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 
 (log de fuerza bruta xd) <img width="1512" height="757" alt="image" src="https://github.com/user-attachments/assets/bb0eb63e-9a28-45d0-9862-5c4625be6c69" />
 
+(un log más extendido del atake de fuerza bruta xd) <img width="1501" height="840" alt="image" src="https://github.com/user-attachments/assets/91e507a8-fe6e-40a5-98da-9d3ef6ebb722" />
+
+
 
 
 
