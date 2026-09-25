@@ -24,9 +24,10 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 - Dashboard de Wazuh con la alerta visible.
 - Ticket en GLPI con estado "escalado a NOC".
 
-![Alerta de fuerza bruta en Wazuh](../../assets/12-wazuh-bruteforce-alert.png)
+(imagen de instalacion de wazuh xd): <img width="843" height="168" alt="image" src="https://github.com/user-attachments/assets/c86b5c20-fdb4-4fdc-b642-0bdd84cc13b5" />
 
-![Ticket escalado a NOC en GLPI](../../assets/13-glpi-ticket-escalated.png)
+(imagen de dashboard de wazuh xd): <img width="1899" height="822" alt="image" src="https://github.com/user-attachments/assets/d04a20d0-34ad-46d2-9927-511fbac4fcbe" />
+
 
 ## Pendiente
 - [ ] Crear la VM
