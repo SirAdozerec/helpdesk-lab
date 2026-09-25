@@ -38,6 +38,7 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 
 (un log más extendido del atake de fuerza bruta xd) <img width="1501" height="840" alt="image" src="https://github.com/user-attachments/assets/91e507a8-fe6e-40a5-98da-9d3ef6ebb722" />
 
+(mi escalamiento como help desk a seguridad. Ticket de seguridad, múltiples intentos de logeo a una cuenta) <img width="1700" height="845" alt="image" src="https://github.com/user-attachments/assets/f5459050-e6b8-479d-8b1f-1240ef952248" />
 
 
 
