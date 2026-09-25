@@ -34,6 +34,10 @@ y ejecutar un escenario completo de detección y respuesta a un ataque simulado.
 (imagen del dashboard de wazuh con 1 vm xd) <img width="1896" height="561" alt="image" src="https://github.com/user-attachments/assets/d6257c9e-580f-43d7-abd8-04eccdcfb3c6" />
 
 
+(log de fuerza bruta xd) <img width="1512" height="757" alt="image" src="https://github.com/user-attachments/assets/bb0eb63e-9a28-45d0-9862-5c4625be6c69" />
+
+
+
 
 ## Pendiente
 - [ ] Crear la VM
