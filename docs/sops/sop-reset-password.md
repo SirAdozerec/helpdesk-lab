@@ -17,5 +17,14 @@ bloqueado.
 - El usuario puede iniciar sesión.
 - Se le solicita cambiar contraseña al primer logon.
 
-## Pendiente
-- [ ] Escribir el SOP completo con capturas
+## Evidencia
+
+<p align="center">
+  <img width="800" alt="Diálogo Reset Password en Active Directory Users and Computers" src="PON_AQUI_TU_LINK" />
+</p>
+<p align="center"><em>Reset de contraseña con "User must change password at next logon" marcado.</em></p>
+
+<p align="center">
+  <img width="800" alt="Usuario forzado a cambiar su contraseña en el primer inicio de sesión" src="PON_AQUI_TU_LINK" />
+</p>
+<p align="center"><em>Verificación: se solicita el cambio de contraseña al primer logon.</em></p>
