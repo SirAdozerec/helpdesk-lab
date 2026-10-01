@@ -44,3 +44,10 @@ net share
 Durante el primer intento de promoción, la instalación falló después del reinicio: los servicios de Active Directory (NTDS, ADWS, KDC y Netlogon) se quedaron en estado `Stopped` y `ntdsutil` reportaba que la máquina no era un controlador de dominio.
 
 **Solución:** Realicé una limpieza y volví a ejecutar la promoción de forma forzada con el comando `Install-ADDSForest -Force`. Tras el segundo reinicio, los servicios arrancaron correctamente y el sistema quedó estable.
+
+
+## Notas
+
+Configuré el Functional Level en Windows Server 2016 en lugar de 2022 para
+dejar abierta la posibilidad de incorporar un Domain Controller adicional
+con una versión más antigua en el futuro, sin reconstruir el bosque.
