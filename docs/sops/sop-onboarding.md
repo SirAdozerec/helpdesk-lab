@@ -24,16 +24,23 @@ iniciales necesarios.
 ## Evidencia
 
 <p align="center">
-  <img width="800" alt="Asistente New User en Active Directory Users and Computers llenando nombre, apellido y username" src="PON_AQUI_TU_LINK" />
+  <img width="752" height="531" alt="image" src="https://github.com/user-attachments/assets/74af4606-4720-4105-8f29-7237d51b728c" />
 </p>
 <p align="center"><em>Alta del usuario en ADUC con el formato nombre.apellido.</em></p>
 
-<p align="center">
-  <img width="800" alt="Usuario agregado a los grupos de seguridad correspondientes al departamento" src="PON_AQUI_TU_LINK" />
-</p>
-<p align="center"><em>Membresías de grupo asignadas tras el alta.</em></p>
+<br></br>
 
 <p align="center">
-  <img width="800" alt="Inicio de sesión exitoso en CLIENT01 con las credenciales del nuevo usuario" src="PON_AQUI_TU_LINK" />
+  <img width="756" height="536" alt="image" src="https://github.com/user-attachments/assets/0eefd16e-b838-42c8-b480-fb1038d40b09" />
+</p>
+
+<p align="center"><em>Verificación de las membresías de grupo del usuario.</em></p>
+<br></br>
+<p align="center">
+  <img width="486" height="571" alt="image" src="https://github.com/user-attachments/assets/4bdfbf70-823f-4362-8c9e-f0f03252e7e9" />
+
+  <img width="632" height="183" alt="image" src="https://github.com/user-attachments/assets/13608882-baad-455d-a11d-e91f8f9cffcb" />
+
+
 </p>
 <p align="center"><em>Verificación: el usuario nuevo inicia sesión en CLIENT01 sin problema.</em></p>
