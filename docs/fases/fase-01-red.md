@@ -16,10 +16,12 @@ En el Virtual Network Editor confirmé que `vmnet2` quedó como host-only, con e
 <p align="center">
 <img width="625" height="609" alt="Virtual Network Editor mostrando vmnet2 configurada como host-only, con DHCP deshabilitado y la subred 192.168.10.0" src="https://github.com/user-attachments/assets/300be9e6-0277-4051-9a08-c2bdbbd353fe" />
 </p>
+<p align="center"><em>Virtual Network Editor: vmnet2 como host-only, DHCP deshabilitado, subred 192.168.10.0/24.</em></p>
 
 También verifiqué que el servicio `vmware-networks.service` arrancara sin errores.
 
 ## Notas
 `vmware-networks.service` no queda habilitado para iniciar solo al reiniciar el host. Cada vez que reinicio, tengo que levantarlo a mano:
 
-`sudo systemctl start vmware-networks.service`
+`sudo systemctl start vmware-networks.service
+`
