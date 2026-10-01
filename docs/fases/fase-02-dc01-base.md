@@ -15,9 +15,11 @@ Desplegar la VM de Windows Server 2022 que funcionará como el Controlador de Do
 - El adaptador de red está conectado a vmnet2 en VMware.
 
 <p align="center">
-  <img width="828" height="689" alt="Captura 2 - Hardware y enlace de la VM" src="https://github.com/user-attachments/assets/b7d0dea9-39d2-4440-a0f9-7e8d7a82f763" />
+  <img width="828" height="689" alt="Configuración de hardware de DC01 y adaptador de red enlazado a vmnet2" src="https://github.com/user-attachments/assets/b7d0dea9-39d2-4440-a0f9-7e8d7a82f763" />
 </p>
+<p align="center"><em>Recursos asignados a DC01 (4 vCPU, 4GB RAM) y adaptador de red enlazado a vmnet2.</em></p>
 
 <p align="center">
   <img width="724" height="526" alt="Configuración de red IP estática en DC01" src="https://github.com/user-attachments/assets/06179dbe-e869-439a-b781-193f59cadc4c" />
 </p>
+<p align="center"><em>IP estática 192.168.10.2/24 configurada en el adaptador de red de DC01.</em></p>
