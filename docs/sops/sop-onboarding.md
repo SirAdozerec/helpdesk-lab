@@ -21,11 +21,6 @@ iniciales necesarios.
 - El usuario puede iniciar sesión en CLIENT01 con sus credenciales.
 - Pertenece a los grupos correctos.
 
-## Pendiente
-- [ ] Escribir el SOP completo con capturas
-
-
-
 ## Evidencia
 
 <p align="center">
