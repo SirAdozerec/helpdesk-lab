@@ -60,14 +60,14 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ## Fases de Implementación
 
-| Fase | Descripción | Estado | Detalle |
-|---|---|---|---|
-| 01 | Preparación del hipervisor y segmentación de red | ✅ | [Ver detalle](docs/fases/fase-01-red.md) |
-| 02 | Aprovisionamiento y configuración base de DC01 | ✅ | [Ver detalle](docs/fases/fase-02-dc01-base.md) |
-| 03 | Promoción del dominio `corp.local` | ✅ | [Ver detalle](docs/fases/fase-03-promocion-ad.md) |
-| 04 | Unión de CLIENT01 al dominio | 🔴 | [Ver detalle](docs/fases/fase-04-client01.md) |
-| 05 | Despliegue de GLPI + autenticación LDAP | 🔴 | [Ver detalle](docs/fases/fase-05-glpi.md) |
-| 06 | Despliegue de Wazuh + escenario de incidente | 🔴 | [Ver detalle](docs/fases/fase-06-wazuh-incidente.md) |
+| Fase | Descripción |
+| --- | --- |
+| [01 — Hipervisor y red](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-01-red.md) | Segmentación de red host-only y preparación del entorno virtual |
+| [02 — DC01 base](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-02-dc01-base.md) | Aprovisionamiento de Windows Server 2022 como futuro Domain Controller |
+| [03 — Promoción del dominio](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-03-promocion-ad.md) | Creación del bosque `corp.local` |
+| [04 — CLIENT01](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-04-client01.md) | Unión de la estación de trabajo al dominio |
+| [05 — GLPI](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-05-glpi.md) | Despliegue de la mesa de ayuda con autenticación LDAP |
+| [06 — Wazuh](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-06-wazuh-incidente.md) | SIEM, detección de fuerza bruta y escalamiento completo |
 
 ---
 
@@ -79,16 +79,23 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ---
 
-## Escenario de Demostración
+## Flujo de escalamiento: de Help Desk a Respuesta a Incidentes
 
-El laboratorio incluye un flujo completo de respuesta a incidentes:
+Un ticket de Help Desk no siempre se queda en Help Desk. En este laboratorio se documenta un caso completo de cuándo y cómo escalar algo que supera el alcance de un analista de Soporte Técnico:
 
-1. Simulación de intentos de logon fallidos (fuerza bruta) en DC01.
-2. Wazuh detecta el patrón → dispara alerta.
-3. Se abre ticket en GLPI reportando actividad sospechosa.
-4. El ticket se escala a NOC citando la alerta de Wazuh como evidencia.
-5. Se bloquea la cuenta afectada en AD y se cambia contraseña.
-6. Se redacta un [post-incident report](docs/post-incident-report-demo.md).
+**1. El SIEM detecta un patrón de fuerza bruta contra una cuenta de AD.**
+   
+**2. Se abre un ticket en GLPI documentando la actividad sospechosa, el
+   primer punto de contacto.**
+
+**3. Reconociendo que el caso supera el alcance de L1, se escala al grupo
+   de Seguridad citando la alerta de Wazuh como evidencia.**
+
+**4. Se aplica la contención inmediata (bloqueo de cuenta) y se documenta
+   el cierre con un [post-incident report](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/post-incident-report-demo.md).***
+
+La intención de este añadido al lab, es el reconocimiento del
+límite de alcance y escalar con evidencia.
 
 ---
 
