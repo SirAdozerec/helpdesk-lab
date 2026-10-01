@@ -24,20 +24,20 @@ net share
 
 **Resultado:** El bosque `corp.local` se encuentra operativo con DC01 como único **Domain Controller**. Los servicios críticos (**NTDS, ADWS, DNS, Netlogon, KDC**) están en estado `Running` y las pruebas de `dcdiag /v` arrojaron resultados satisfactorios (`passed`).
 
+<p align="center">
+  <img width="1009" height="715" alt="Salida de Get-ADDomain y Get-ADForest confirmando el dominio corp.local operativo" src="https://github.com/user-attachments/assets/a2df57c5-b745-4518-83ec-8efc6c34aa68" />
+</p>
+<p align="center"><em>Get-ADDomain / Get-ADForest confirmando que corp.local quedó operativo.</em></p>
 
 <p align="center">
-  <img width="1009" height="715" alt="Captura 1 - Descripción" src="https://github.com/user-attachments/assets/a2df57c5-b745-4518-83ec-8efc6c34aa68" />
+  <img width="1009" height="715" alt="Resultado de dcdiag /v con todas las pruebas en estado passed" src="https://github.com/user-attachments/assets/d73e2017-8eae-490b-8673-52433175f524" />
 </p>
+<p align="center"><em>Resultado de dcdiag /v: todas las pruebas en estado passed.</em></p>
 
 <p align="center">
-  <img width="1009" height="715" alt="Captura 2 - Descripción" src="https://github.com/user-attachments/assets/d73e2017-8eae-490b-8673-52433175f524" />
+  <img width="762" height="358" alt="Servicios NTDS, ADWS, DNS, Netlogon y KDC en estado Running junto con los shares SYSVOL y NETLOGON" src="https://github.com/user-attachments/assets/b4a8b542-18f2-4b23-9696-3cb4446287ae" />
 </p>
-
-<p align="center">
-  <img width="762" height="358" alt="Captura 3 - Descripción" src="https://github.com/user-attachments/assets/b4a8b542-18f2-4b23-9696-3cb4446287ae" />
-</p>
-
-
+<p align="center"><em>Servicios críticos en Running y shares SYSVOL/NETLOGON publicados correctamente.</em></p>
 
 ## Resolución de problemas/Troubleshooting:
 
