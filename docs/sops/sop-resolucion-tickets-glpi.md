@@ -1,30 +1,33 @@
-# SOP — Reset de contraseña
+# SOP — Resolución de tickets en GLPI
 
 ## Objetivo
-Resetear la contraseña de un usuario de dominio cuando la olvida o está
-bloqueado.
+Proceso estándar para atender, categorizar y cerrar tickets de soporte.
 
-## Procedimiento
-1. Verificar identidad del solicitante (política interna).
-2. Abrir **Active Directory Users and Computers**.
-3. Buscar al usuario.
-4. Clic derecho → Reset Password.
-5. Asignar contraseña temporal y marcar "User must change password at next logon".
-6. Si la cuenta estaba bloqueada, desbloquearla.
-7. Registrar en el ticket de GLPI.
+## Flujo
+1. **Recepción:** el ticket llega a la cola de GLPI.
+2. **Triage:** clasificar por severidad y categoría.
+  - Crítica: afecta producción o múltiples usuarios.
+  - Alta: bloquea trabajo de un usuario.
+  - Media: molesta pero hay workaround.
+  - Baja: cosmético o solicitud.
+3. **Asignación:** tomar el ticket o escalar al grupo correspondiente.
+4. **Resolución:** aplicar la solución y documentar pasos.
+5. **Cierre:** confirmar con el usuario y cerrar el ticket.
 
-## Verificación
-- El usuario puede iniciar sesión.
-- Se le solicita cambiar contraseña al primer logon.
+## Escalado
+Si el ticket requiere intervención de otro equipo:
+1. Actualizar la categoría.
+2. Añadir nota interna con el motivo de escalado.
+3. Reasignar al grupo correspondiente.
 
 ## Evidencia
 
 <p align="center">
-  <img width="800" alt="Diálogo Reset Password en Active Directory Users and Computers" src="PON_AQUI_TU_LINK" />
+  <img width="800" alt="Cola de tickets en GLPI clasificados por severidad durante el triage" src="PON_AQUI_TU_LINK" />
 </p>
-<p align="center"><em>Reset de contraseña con "User must change password at next logon" marcado.</em></p>
+<p align="center"><em>Triage de tickets en GLPI por nivel de severidad.</em></p>
 
 <p align="center">
-  <img width="800" alt="Usuario forzado a cambiar su contraseña en el primer inicio de sesión" src="PON_AQUI_TU_LINK" />
+  <img width="800" alt="Ticket escalado en GLPI con categoría actualizada y nota interna del motivo" src="PON_AQUI_TU_LINK" />
 </p>
-<p align="center"><em>Verificación: se solicita el cambio de contraseña al primer logon.</em></p>
+<p align="center"><em>Escalado de un ticket: categoría actualizada y nota interna documentando el motivo.</em></p>
