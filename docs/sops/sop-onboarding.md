@@ -23,3 +23,22 @@ iniciales necesarios.
 
 ## Pendiente
 - [ ] Escribir el SOP completo con capturas
+
+
+
+## Evidencia
+
+<p align="center">
+  <img width="800" alt="Asistente New User en Active Directory Users and Computers llenando nombre, apellido y username" src="PON_AQUI_TU_LINK" />
+</p>
+<p align="center"><em>Alta del usuario en ADUC con el formato nombre.apellido.</em></p>
+
+<p align="center">
+  <img width="800" alt="Usuario agregado a los grupos de seguridad correspondientes al departamento" src="PON_AQUI_TU_LINK" />
+</p>
+<p align="center"><em>Membresías de grupo asignadas tras el alta.</em></p>
+
+<p align="center">
+  <img width="800" alt="Inicio de sesión exitoso en CLIENT01 con las credenciales del nuevo usuario" src="PON_AQUI_TU_LINK" />
+</p>
+<p align="center"><em>Verificación: el usuario nuevo inicia sesión en CLIENT01 sin problema.</em></p>
