@@ -2,25 +2,41 @@
 
 > Homelab de Help Desk, IT Support y monitoreo de seguridad. Construido desde cero en Arch Linux con VMware Workstation Pro.
 
-Simulación de un entorno corporativo completo en 4 VMs: identidad con
+Simulación de un entorno corporativo en 4 VMs: identidad con
 Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y
-el ciclo completo de soporte técnico — desde la creación de un usuario
-hasta la resolución de un incidente. El objetivo es demostrar habilidades
-prácticas de soporte técnico y administración de sistemas en un entorno
+el ciclo completo de soporte (desde la creación de un usuario
+hasta la resolución de un incidente). El objetivo del laboratorio es demostrar habilidades
+prácticas de soporte técnico en un entorno
 empresarial.
 
 ------AKI VA LA TOPOLOGIA EN GIF EKISDE XD--------
 
 ---
 
-## 🎯 Objetivo
+## 🎯 Objetivo / Flujo de trabajo del laboratorio
 
-Construir un entorno de TI funcional donde:
+El objetivo del laboratorio es que cada máquina cumpla una función
+concreta dentro de un flujo de trabajo verosímil dentro del ciclo completo de soporte técnico de una
+empresa mediana:
 
-- Existan empleados como usuarios en Active Directory.
-- Reportan problemas vía tickets en GLPI (con autenticación LDAP contra AD).
-- Su actividad se monitorea con Wazuh (SIEM).
-- Un intento de fuerza bruta dispara una alerta que conecta Help Desk con el departamento correspondiente.
+1. **Identidad:** los empleados residen en Active Directory. Inician sesión
+   en su equipo con sus credenciales de dominio.
+
+2. **Soporte diario:** cuando algo falla, abren un ticket en GLPI. El
+   sistema valida su identidad vía LDAP contra AD, así usan la misma
+   cuenta sin contraseñas extra.
+
+3. **Resolución:** el técnico atiende el ticket, documenta la solución,
+   y lo cierra. Los procedimientos están estandarizados en los SOPs.
+
+4. **Monitoreo continuo:** los endpoints envían sus logs a un SIEM,
+   que vigila la actividad del dominio en tiempo real.
+
+5. **Escalamiento (caso puntual):** cuando un evento supera el alcance
+   de L1 (por ejemplo, una alerta de fuerza bruta detectada por Wazuh),
+   se escala al equipo correspondiente con evidencia técnica adjunta.
+
+
 
 ---
 
@@ -47,34 +63,6 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 | **SRV-WAZUH** | Ubuntu Server 24.04 | `192.168.10.11` | SIEM: Manager + Indexer + Dashboard |
 
 </div>
-
----
-
-## Flujo de trabajo del laboratorio
-
-El laboratorio reproduce el ciclo completo de soporte técnico de una
-empresa mediana:
-
-1. **Identidad:** los empleados viven en Active Directory. Inician sesión
-   en su equipo con sus credenciales de dominio.
-
-2. **Soporte diario:** cuando algo falla, abren un ticket en GLPI. El
-   sistema valida su identidad vía LDAP contra AD, así usan la misma
-   cuenta sin contraseñas extra.
-
-3. **Resolución:** el técnico atiende el ticket, documenta la solución,
-   y lo cierra. Los procedimientos están estandarizados en los SOPs.
-
-4. **Monitoreo continuo:** los endpoints envían sus logs a Wazuh (SIEM),
-   que vigila la actividad del dominio en tiempo real.
-
-5. **Escalamiento (caso puntual):** cuando un evento supera el alcance
-   de L1 — por ejemplo, una alerta de fuerza bruta detectada por Wazuh —
-   se escala al equipo correspondiente con evidencia técnica adjunta.
-
-El objetivo del laboratorio es que cada máquina cumpla una función
-concreta dentro de un flujo de trabajo verosímil, no solo acumular
-servicios instalados.
 
 ---
 
@@ -114,28 +102,15 @@ servicios instalados.
 
 ---
 
-## Estructura del Repositorio
-
-    .
-    ├── README.md
-    ├── .gitignore
-    ├── assets/          # Capturas y diagramas
-    ├── docs/
-    │   ├── fases/       # Detalle técnico de cada fase
-    │   ├── sops/        # Procedimientos operativos estándar
-    │   └── post-incident-report-demo.md
-    └── scripts/         # Automatización (Python + PowerShell)
-
----
-
-## 🧠 Skills Técnicas Demostradas
+## 🧠 Skills Aplicadas
 
 - Administración de Windows Server 2022 y Active Directory (AD DS)
 - Diseño e implementación de DNS y DHCP en entornos de dominio
 - Administración de Linux (Ubuntu Server) y stack LAMP
-- Virtualización con VMware Workstation Pro (redes host-only)
-- Automatización con PowerShell y Python
+- Virtualización con VMware Workstation Pro
 - Gestión de servicios IT con GLPI (ITSM, tickets, KB)
 - Monitoreo y respuesta a incidentes con SIEM (Wazuh)
 - Autenticación LDAP e integración con Active Directory
-- Documentación técnica (SOPs) y control de versiones con Git
+- Documentación (SOPs) y control de versiones con Git
+
+---
