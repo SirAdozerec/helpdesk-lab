@@ -9,7 +9,7 @@ hasta la resolución de un incidente. El objetivo es demostrar habilidades
 prácticas de soporte técnico y administración de sistemas en un entorno
 empresarial.
 
-------AKI VA LA TOPOLOGIA EN GIF EKISDE XD--------
+
 
 ---
 
