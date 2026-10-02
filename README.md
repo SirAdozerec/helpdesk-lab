@@ -1,12 +1,13 @@
 # HelpDesk Lab
 
-> Homelab de Help Desk, IT Support y monitoreo de seguridad. Construido desde cero en Arch Linux con VMware Workstation Pro.
+> Homelab de IT Support construido desde cero en Arch Linux con VMware Workstation Pro.
 
-Simulación de un entorno corporativo completo en 4 VMs: identidad con
-Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y el
-flujo completo de escalamiento Help Desk → NOC → Respuesta a Incidentes.
-El objetivo es demostrar habilidades prácticas de soporte técnico y
-administración de sistemas en un entorno empresarial.
+Simulación de un entorno corporativo en 4 VMs: identidad con
+Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y
+el ciclo completo de soporte técnico: desde la creación de un usuario
+hasta la resolución de un incidente. El objetivo es demostrar habilidades
+prácticas de soporte técnico y administración de sistemas en un entorno
+empresarial.
 
 ------AKI VA LA TOPOLOGIA EN GIF EKISDE XD--------
 
@@ -25,8 +26,8 @@ Construir un entorno de TI funcional donde:
 
 ## Arquitectura
 
-El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
-en modo host-only. Las VMs se ven entre ellas pero no
+El laboratorio reside en una sola red virtual llamada `vmnet2`, configurada
+como host-only. Las VMs se ven entre ellas pero no
 pueden salir a internet ni tocar la red del host.
 
 El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
@@ -36,7 +37,7 @@ El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
 
 El dominio utilizado es `corp.local` y cuenta con un único controlador de dominio.
 
-
+<div align="center">
 
 | VM | SO | IP | Rol |
 |---|---|---|---|
@@ -44,6 +45,35 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 | **CLIENT01** | Windows 11 Pro | DHCP | Estación de trabajo unida al dominio |
 | **SRV-GLPI** | Ubuntu Server 24.04 | `192.168.10.10` | LAMP + GLPI (ITSM) |
 | **SRV-WAZUH** | Ubuntu Server 24.04 | `192.168.10.11` | SIEM: Manager + Indexer + Dashboard |
+
+</div>
+
+---
+
+## Flujo de trabajo del laboratorio
+
+El laboratorio reproduce el ciclo completo de soporte técnico de una
+empresa mediana:
+
+1. **Identidad:** los empleados se encuentran en Active Directory. Inician sesión
+   en su equipo con sus credenciales de dominio.
+
+2. **Soporte diario:** si algo falla, abren un ticket en GLPI. El
+   sistema valida su identidad vía LDAP contra AD, así usan la misma
+   cuenta.
+
+3. **Resolución:** el técnico atiende el ticket, documenta la solución,
+   y lo cierra. Los procedimientos están estandarizados en los SOPs.
+
+4. **Monitoreo:** los endpoints envían sus logs a Wazuh (SIEM),
+   que vigila la actividad del dominio en tiempo real.
+
+5. **Escalamiento (como caso puntual):** cuando un evento supera el alcance
+   de L1 (por ejemplo, una alerta de fuerza bruta detectada por Wazuh),
+   se escala al equipo correspondiente con evidencia técnica adjunta.
+
+El objetivo del laboratorio es que cada máquina cumpla una función
+concreta dentro de un flujo de trabajo verosímil.
 
 ---
 
@@ -60,6 +90,8 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ## Fases de Implementación
 
+<div align="center">
+
 | Fase | Descripción |
 | --- | --- |
 | [01 — Hipervisor y red](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-01-red.md) | Segmentación de red host-only y preparación del entorno virtual |
@@ -68,6 +100,8 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 | [04 — CLIENT01](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-04-client01.md) | Unión de la estación de trabajo al dominio |
 | [05 — GLPI](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-05-glpi.md) | Despliegue de la mesa de ayuda con autenticación LDAP |
 | [06 — Wazuh](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/fases/fase-06-wazuh-incidente.md) | SIEM, detección de fuerza bruta y escalamiento completo |
+
+</div>
 
 ---
 
@@ -79,48 +113,16 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 
 ---
 
-## Flujo de escalamiento: de Help Desk a Respuesta a Incidentes
-
-Un ticket de Help Desk no siempre se queda en Help Desk. En este laboratorio se documenta un caso completo de cuándo y cómo escalar algo que supera el alcance de un analista de Soporte Técnico:
-
-**1. El SIEM detecta un patrón de fuerza bruta contra una cuenta de AD.**
-   
-**2. Se abre un ticket en GLPI documentando la actividad sospechosa, el
-   primer punto de contacto.**
-
-**3. Reconociendo que el caso supera el alcance de L1, se escala al grupo
-   de Seguridad citando la alerta de Wazuh como evidencia.**
-
-**4. Se aplica la contención inmediata (bloqueo de cuenta) y se documenta
-   el cierre con un [post-incident report](https://github.com/SirAdozerec/helpdesk-lab/blob/main/docs/post-incident-report-demo.md).***
-
-La intención de este añadido al lab, es el reconocimiento del
-límite de alcance y escalar con evidencia.
-
----
-
-## Estructura del Repositorio
-
-    .
-    ├── README.md
-    ├── .gitignore
-    ├── assets/          # Capturas y diagramas
-    ├── docs/
-    │   ├── fases/       # Detalle técnico de cada fase
-    │   ├── sops/        # Procedimientos operativos estándar
-    │   └── post-incident-report-demo.md
-    └── scripts/         # Automatización (Python + PowerShell)
-
----
-
-## 🧠 Skills Técnicas Demostradas
+## 🧠 Skills Aplicadas
 
 - Administración de Windows Server 2022 y Active Directory (AD DS)
-- Diseño e implementación de DNS y DHCP en entornos de dominio
+- Implementación de DNS y DHCP en entornos de dominio
 - Administración de Linux (Ubuntu Server) y stack LAMP
-- Virtualización con VMware Workstation Pro (redes host-only)
-- Automatización con PowerShell y Python
+- Virtualización con VMware Workstation Pro
+- Automatización con PowerShell
 - Gestión de servicios IT con GLPI (ITSM, tickets, KB)
 - Monitoreo y respuesta a incidentes con SIEM (Wazuh)
 - Autenticación LDAP e integración con Active Directory
 - Documentación técnica (SOPs) y control de versiones con Git
+
+---
