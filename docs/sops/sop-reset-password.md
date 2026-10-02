@@ -19,12 +19,32 @@ bloqueado.
 
 ## Evidencia
 
-<p align="center">
-  <img width="800" alt="Diálogo Reset Password en Active Directory Users and Computers" src="PON_AQUI_TU_LINK" />
-</p>
-<p align="center"><em>Reset de contraseña con "User must change password at next logon" marcado.</em></p>
+<div align="center">
+  <table style="border: none;">
+    <tr style="border: none;">
+      <td align="center" style="border: none; padding: 8px;">
+        <img width="450" alt="Diálogo Reset Password en ADUC" src="https://github.com/user-attachments/assets/2fd7493a-b288-45ee-91be-e9cd03b4550a" />
+      </td>
+      <td align="center" style="border: none; padding: 8px;">
+        <img width="450" alt="Confirmación de cambio de contraseña" src="https://github.com/user-attachments/assets/e4eb1781-10c8-4637-ac02-45c21ad2536b" />
+      </td>
+    </tr>
+  </table>
+  <br><em style="font-size: 0.9em;">Reset de contraseña en ADUC. </em>
+</div>
 
-<p align="center">
-  <img width="800" alt="Usuario forzado a cambiar su contraseña en el primer inicio de sesión" src="PON_AQUI_TU_LINK" />
-</p>
-<p align="center"><em>Verificación: se solicita el cambio de contraseña al primer logon.</em></p>
+<br></br>
+
+<div align="center">
+  <table style="border: none;">
+    <tr style="border: none;">
+      <td align="center" style="border: none; padding: 8px;">
+        <img width="350" alt="Aviso de cambio de contraseña obligatorio" src="https://github.com/user-attachments/assets/dfdf72c7-ef64-4129-8f6b-4e0396072067" />
+      </td>
+      <td align="center" style="border: none; padding: 8px;">
+        <img width="350" alt="Pantalla de cambio de contraseña en CLIENT01" src="https://github.com/user-attachments/assets/2f21d56b-fe58-4fa6-ba9c-0a172e7d26a3" />
+      </td>
+    </tr>
+  </table>
+  <br><em style="font-size: 0.9em;">Verificación: se solicita el cambio de contraseña al primer logon.</em>
+</div>
