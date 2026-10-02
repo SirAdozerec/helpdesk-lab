@@ -1,15 +1,15 @@
 # HelpDesk Lab
 
-> Homelab de IT Support construido desde cero en Arch Linux con VMware Workstation Pro.
+> Homelab de Help Desk, IT Support y monitoreo de seguridad. Construido desde cero en Arch Linux con VMware Workstation Pro.
 
-Simulación de un entorno corporativo en 4 VMs: identidad con
+Simulación de un entorno corporativo completo en 4 VMs: identidad con
 Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y
-el ciclo completo de soporte técnico: desde la creación de un usuario
+el ciclo completo de soporte técnico — desde la creación de un usuario
 hasta la resolución de un incidente. El objetivo es demostrar habilidades
 prácticas de soporte técnico y administración de sistemas en un entorno
 empresarial.
 
-
+------AKI VA LA TOPOLOGIA EN GIF EKISDE XD--------
 
 ---
 
@@ -26,8 +26,8 @@ Construir un entorno de TI funcional donde:
 
 ## Arquitectura
 
-El laboratorio reside en una sola red virtual llamada `vmnet2`, configurada
-como host-only. Las VMs se ven entre ellas pero no
+El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
+en modo host-only. Las VMs se ven entre ellas pero no
 pueden salir a internet ni tocar la red del host.
 
 El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
@@ -55,25 +55,26 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 El laboratorio reproduce el ciclo completo de soporte técnico de una
 empresa mediana:
 
-1. **Identidad:** los empleados se encuentran en Active Directory. Inician sesión
+1. **Identidad:** los empleados viven en Active Directory. Inician sesión
    en su equipo con sus credenciales de dominio.
 
-2. **Soporte diario:** si algo falla, abren un ticket en GLPI. El
+2. **Soporte diario:** cuando algo falla, abren un ticket en GLPI. El
    sistema valida su identidad vía LDAP contra AD, así usan la misma
-   cuenta.
+   cuenta sin contraseñas extra.
 
 3. **Resolución:** el técnico atiende el ticket, documenta la solución,
    y lo cierra. Los procedimientos están estandarizados en los SOPs.
 
-4. **Monitoreo:** los endpoints envían sus logs a Wazuh (SIEM),
+4. **Monitoreo continuo:** los endpoints envían sus logs a Wazuh (SIEM),
    que vigila la actividad del dominio en tiempo real.
 
-5. **Escalamiento (como caso puntual):** cuando un evento supera el alcance
-   de L1 (por ejemplo, una alerta de fuerza bruta detectada por Wazuh),
+5. **Escalamiento (caso puntual):** cuando un evento supera el alcance
+   de L1 — por ejemplo, una alerta de fuerza bruta detectada por Wazuh —
    se escala al equipo correspondiente con evidencia técnica adjunta.
 
 El objetivo del laboratorio es que cada máquina cumpla una función
-concreta dentro de un flujo de trabajo verosímil.
+concreta dentro de un flujo de trabajo verosímil, no solo acumular
+servicios instalados.
 
 ---
 
@@ -113,16 +114,28 @@ concreta dentro de un flujo de trabajo verosímil.
 
 ---
 
-## 🧠 Skills Aplicadas
+## Estructura del Repositorio
+
+    .
+    ├── README.md
+    ├── .gitignore
+    ├── assets/          # Capturas y diagramas
+    ├── docs/
+    │   ├── fases/       # Detalle técnico de cada fase
+    │   ├── sops/        # Procedimientos operativos estándar
+    │   └── post-incident-report-demo.md
+    └── scripts/         # Automatización (Python + PowerShell)
+
+---
+
+## 🧠 Skills Técnicas Demostradas
 
 - Administración de Windows Server 2022 y Active Directory (AD DS)
-- Implementación de DNS y DHCP en entornos de dominio
+- Diseño e implementación de DNS y DHCP en entornos de dominio
 - Administración de Linux (Ubuntu Server) y stack LAMP
-- Virtualización con VMware Workstation Pro
-- Automatización con PowerShell
+- Virtualización con VMware Workstation Pro (redes host-only)
+- Automatización con PowerShell y Python
 - Gestión de servicios IT con GLPI (ITSM, tickets, KB)
 - Monitoreo y respuesta a incidentes con SIEM (Wazuh)
 - Autenticación LDAP e integración con Active Directory
 - Documentación técnica (SOPs) y control de versiones con Git
-
----
