@@ -49,16 +49,16 @@ Desplegar un SIEM (**Wazuh**) para centralizar los logs de seguridad del laborat
 
 Con el SIEM operativo y el agente enviando eventos, ejecuté un ataque controlado para probar la capacidad de detección.
 
-1.  **Simulación del ataque:** Ejecuté un bucle de intentos fallidos contra la cuenta `victoria.alejandro` desde DC01. Esto generó múltiples eventos en el log de seguridad.
+1.  **Simulación del ataque:** Ejecuté un bucle de intentos de autenticación fallidos contra la cuenta `victoria.alejandro` desde DC01. Esto generó múltiples eventos **4625** (Windows Logon Failure) en el log de seguridad.
 
-2.  **Detección por parte de Wazuh:** El SIEM procesó los eventos y disparó la regla **60122 — "Multiple Windows Logon Failures"**, detectando **133 hits** contra la cuenta en menos de un minuto.
+2.  **Detección por parte de Wazuh:** El SIEM procesó cada evento 4625 individualmente, activando la regla **60122 — "Logon Failure - Unknown user or bad password"** para cada intento. La correlación de estos eventos disparó la regla **60204 — "Multiple Windows Logon Failures"**, acumulando **133 hits** contra la cuenta en menos de un minuto.
 
 <div align="center">
   <img width="1512" alt="Alerta de fuerza bruta en Wazuh" src="https://github.com/user-attachments/assets/bb0eb63e-9a28-45d0-9862-5c4625be6c69" />
-  <br><em style="font-size: 0.9em;">Vista general de la alerta: 133 hits de la regla 60122.</em>
+  <br><em style="font-size: 0.9em;">Vista general de la alerta: 133 hits de reglas correlacionadas de fallos de logon.</em>
   <br><br>
   <img width="1501" alt="Detalle de los eventos de fuerza bruta" src="https://github.com/user-attachments/assets/91e507a8-fe6e-40a5-98da-9d3ef6ebb722" />
-  <br><em style="font-size: 0.9em;">Detalle de los eventos.</em>
+  <br><em style="font-size: 0.9em;">Detalle de los eventos de autenticación fallidos contra victoria.alejandro.</em>
 </div >
 <br></br>
 
@@ -74,4 +74,3 @@ Con el SIEM operativo y el agente enviando eventos, ejecuté un ataque controlad
 * **Falta de espacio en disco:** La instalación fallaba con el error `Wazuh dashboard installation failed` porque el volumen raíz solo tenía 9.8 GB asignados. **Solución:** Expandí la partición LVM usando `growpart`, `pvresize`, `lvextend` y `resize2fs` hasta alcanzar los 33 GB necesarios.
 
 * **Descarga del agente en red aislada:** Como DC01 no tiene internet, no podía bajar el MSI directamente. **Solución:** Descargué el archivo en SRV-WAZUH y lo serví mediante un servidor HTTP local con `python3 -m http.server 8000`.
-
