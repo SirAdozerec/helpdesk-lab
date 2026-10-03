@@ -9,7 +9,11 @@ hasta la resolución de un incidente). El objetivo del laboratorio es demostrar 
 prácticas de soporte técnico en un entorno
 empresarial.
 
-<img width="1494" height="924" alt="elchido xd (1)" src="https://github.com/user-attachments/assets/7898c14b-6849-46e7-8993-37064c8173f9" />
+
+<img width="1540" height="1000" alt="YEAAAHHH" src="https://github.com/user-attachments/assets/1241d1d0-6a7d-49eb-b902-e1560aef0b82" />
+
+
+
 
 
 ---
