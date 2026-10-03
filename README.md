@@ -10,7 +10,8 @@ prácticas de soporte técnico en un entorno
 empresarial.
 
 
-<img width="1540" height="1000" alt="YEAAAHHH" src="https://github.com/user-attachments/assets/1241d1d0-6a7d-49eb-b902-e1560aef0b82" />
+<img width="1432" height="930" alt="EZZZ" src="https://github.com/user-attachments/assets/c49717e7-22bb-4a0e-b218-e22b8272b3b8" />
+
 
 
 
