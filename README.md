@@ -49,8 +49,8 @@ empresa mediana:
 ## Arquitectura
 
 El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
-en modo host-only. Las VMs se ven entre ellas pero no
-pueden salir a internet ni tocar la red del host.
+en modo host-only. Las VMs se comunican entre sí y con el adaptador virtual del host,
+pero no tienen acceso directo a la red física ni a Internet.
 
 El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
 
