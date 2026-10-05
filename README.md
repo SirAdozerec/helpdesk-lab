@@ -4,26 +4,19 @@
 
 Simulación de un entorno corporativo en 4 VMs: identidad con
 Active Directory, mesa de ayuda (GLPI), monitoreo con SIEM (Wazuh), y
-el ciclo completo de soporte (desde la creación de un usuario
-hasta la resolución de un incidente). El objetivo del laboratorio es demostrar habilidades
-prácticas de soporte técnico en un entorno
-empresarial.
+el ciclo completo de soporte (desde la creación de un usuario hasta la
+resolución de un incidente). El objetivo del laboratorio es demostrar
+habilidades prácticas de soporte técnico en un entorno empresarial.
 
-
-<img width="1432" height="930" alt="EZZZ" src="https://github.com/user-attachments/assets/c49717e7-22bb-4a0e-b218-e22b8272b3b8" />
-
-
-
-
-
+<img width="1432" height="930" alt="Topología del laboratorio: 4 VMs en red host-only 192.168.10.0/24" src="https://github.com/user-attachments/assets/c49717e7-22bb-4a0e-b218-e22b8272b3b8" />
 
 ---
 
 ## 🎯 Objetivo / Flujo de trabajo del laboratorio
 
 El objetivo del laboratorio es que cada máquina cumpla una función
-concreta dentro de un flujo de trabajo verosímil dentro del ciclo completo de soporte técnico de una
-empresa mediana:
+concreta dentro de un flujo de trabajo verosímil dentro del ciclo completo
+de soporte técnico de una empresa mediana:
 
 1. **Identidad:** los empleados residen en Active Directory. Inician sesión
    en su equipo con sus credenciales de dominio.
@@ -42,15 +35,13 @@ empresa mediana:
    de L1 (por ejemplo, una alerta de fuerza bruta detectada por Wazuh),
    se escala al equipo correspondiente con evidencia técnica adjunta.
 
-
-
 ---
 
 ## Arquitectura
 
 El laboratorio vive en una sola red virtual llamada `vmnet2`, configurada
-en modo host-only. Las VMs se comunican entre sí y con el adaptador virtual del host,
-pero no tienen acceso directo a la red física ni a Internet.
+en modo host-only. Las VMs se comunican entre sí y con el adaptador virtual
+del host, pero no tienen acceso directo a la red física ni a Internet.
 
 El segmento es `192.168.10.0/24`, que da 254 direcciones usables:
 
@@ -65,7 +56,7 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 |---|---|---|---|
 | **DC01** | Windows Server 2022 | `192.168.10.2` | AD DS · DNS · DHCP |
 | **CLIENT01** | Windows 11 Pro | DHCP | Estación de trabajo unida al dominio |
-| **SRV-GLPI** | Ubuntu Server 24.04 | `192.168.10.10` | LAMP + GLPI (ITSM) |
+| **SRV-GLPI** | Ubuntu Server 26.04 | `192.168.10.10` | LAMP + GLPI (ITSM) |
 | **SRV-WAZUH** | Ubuntu Server 24.04 | `192.168.10.11` | SIEM: Manager + Indexer + Dashboard |
 
 </div>
@@ -75,7 +66,7 @@ El dominio utilizado es `corp.local` y cuenta con un único controlador de domin
 ## Entorno del laboratorio
 
 - **Virtualización:** VMware Workstation Pro
-- **Sistemas Operativos:** Windows Server 2022, Windows 11, Ubuntu Server 24.04 LTS
+- **Sistemas Operativos:** Windows Server 2022, Windows 11, Ubuntu Server 26.04 LTS (GLPI), Ubuntu Server 24.04 LTS (Wazuh)
 - **Identidad:** Active Directory (AD DS), DNS, DHCP, LDAP
 - **ITSM:** GLPI sobre LAMP
 - **SIEM:** Wazuh
