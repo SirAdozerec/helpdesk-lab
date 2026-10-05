@@ -13,24 +13,26 @@ que simulará el usuario final del Help Desk.
 4. Unión al dominio: Una vez con conectividad, procedí a unir el equipo al dominio corp.local utilizando las credenciales de CORP\Administrator.
 5. Post-configuración: Reinicié la máquina y realicé la primera sesión de usuario con una cuenta del dominio para confirmar el acceso.
 
-
 ## Validación
 
 - Ejecuté ipconfig y confirmé que la IP asignada pertenece al rango DHCP establecido por el controlador de dominio.
-  
+
 - Revisé las propiedades del sistema y verifiqué que el equipo ya figura como parte del dominio corp.local.
-  
+
 - El login con cuenta de dominio funcionó correctamente tras el primer reinicio.
 
 <div align="center">
 
-<img width="787" height="556" alt="image" src="https://github.com/user-attachments/assets/825e77d0-33dd-47b3-b10c-ee556090efdf" />
+<img width="787" height="556" alt="Salida de ipconfig /all en CLIENT01 mostrando IP 192.168.10.100 asignada por DHCP desde DC01" src="https://github.com/user-attachments/assets/825e77d0-33dd-47b3-b10c-ee556090efdf" />
 
-
-
+<br>
+<em style="font-size: 0.9em;">CLIENT01 recibiendo IP 192.168.10.100 del DHCP de DC01.</em>
 <br><br>
 
-<img width="658" height="409" alt="image" src="https://github.com/user-attachments/assets/535e9e40-7db6-45d9-855e-6f1605b8989c" />
+<img width="658" height="409" alt="Ventana Sistema mostrando CLIENT01.corp.local unido al dominio corp.local" src="https://github.com/user-attachments/assets/535e9e40-7db6-45d9-855e-6f1605b8989c" />
+
+<br>
+<em style="font-size: 0.9em;">Verificación: el equipo figura como parte del dominio corp.local.</em>
 
 </div>
 
