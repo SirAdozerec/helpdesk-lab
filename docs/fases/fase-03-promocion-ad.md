@@ -6,7 +6,7 @@ Establecer el bosque `corp.local` mediante la promoción de DC01 como el primer 
 ## Procedimiento
 1. Comencé instalando el rol **AD DS (Active Directory Domain Services)** en DC01 a través de **Server Manager**.
 2. Inicié el asistente de promoción seleccionando la opción **"Add a new forest"** para crear el dominio `corp.local`.
-3. Configuré el **Forest and Domain Functional Level** en Windows Server 2016.
+3. Configuré el **Forest and Domain Functional Level** en Windows Server 2022.
 4. Definí la contraseña de recuperación **DSRM** y mantuve las rutas por defecto para los directorios **NTDS** y **SYSVOL**.
 5. Verifiqué que todos los "prerequisites" aparecieran en verde y, tras confirmar que todo estaba listo, ejecuté la instalación hasta el reinicio automático.
 
@@ -48,6 +48,6 @@ Durante el primer intento de promoción, la instalación falló después del rei
 
 ## Notas
 
-Configuré el Functional Level en Windows Server 2016 en lugar de 2022 para
+Configuré el Functional Level en Windows Server 2022 para
 dejar abierta la posibilidad de incorporar un Domain Controller adicional
 con una versión más antigua en el futuro, sin reconstruir el bosque.
