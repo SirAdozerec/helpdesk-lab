@@ -48,6 +48,4 @@ Durante el primer intento de promoción, la instalación falló después del rei
 
 ## Notas
 
-Configuré el Functional Level en Windows Server 2022 para
-dejar abierta la posibilidad de incorporar un Domain Controller adicional
-con una versión más antigua en el futuro, sin reconstruir el bosque.
+El Functional Level quedó configurado en Windows Server 2022.
